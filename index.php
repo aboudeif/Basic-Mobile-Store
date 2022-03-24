@@ -17,10 +17,9 @@
       </form></div>
     <article>
     <?php 
-       // include('data/Products.php');
-      include('make_list.php');
-      $data_file = file_get_contents('data/temp.json');
-      $products = json_decode($data_file,true);
+     include('data/Products.php');
+      // $data_file = file_get_contents('data/temp.json');
+      // $products = json_decode($data_file,true);
 
         if($_GET){
           foreach($_GET as $key=>$value){
@@ -33,11 +32,11 @@
         else
           echo "";
          foreach($products as $product){
-           echo "<div class='product' id='_".$product['sku']."'><a href='/show.php?".http_build_query($product)."'>
-              <div class='image'><img src='".$product['image']."'></div>
+           echo "<div class='product' id='_".$product['id']."'><a href='/show.php?".http_build_query($product)."'>
+              <div class='image'><img src='".$product['pic']."'></div>
               <div class='details'><h5>". $product['name']."</h5>
-              <label>brand: ". $product['manufacturer']."</label>
-              <label>shipping: ". $product['shipping']."</label><br>
+              <label>brand: ". $product['brand']."</label>
+              <label>:&#11088; ". $product['rate']."</label><br>
               <label>price: ". $product['price']."</label></a>
               <input type='button' class='addToCart' value='+ &#128722;'></div></div>";
          }
