@@ -6,7 +6,7 @@
   <body>
     <nav><ul>
       <li>&#128722;</li>
-      <li onclick='login();'>Login</li>
+      <a href='make_list.php'><li>Login</li></a>
     </ul></nav>
     <div id='login_board'>
       <form action='account.php' method='GET'>
@@ -17,7 +17,11 @@
       </form></div>
     <article>
     <?php 
-       include('data/Products.php');
+       // include('data/Products.php');
+      include('make_list.php');
+      $data_file = file_get_contents('data/temp.json');
+      $products = json_decode($data_file,true);
+
         if($_GET){
           foreach($_GET as $key=>$value){
             foreach($products as $p_key => $p_value){
@@ -29,11 +33,11 @@
         else
           echo "";
          foreach($products as $product){
-           echo "<div class='product' id='".$product['id']."'><a href='/show.php?".http_build_query($product)."'>
-              <div class='image'><img src='".$product['pic']."'></div>
+           echo "<div class='product' id='_".$product['sku']."'><a href='/show.php?".http_build_query($product)."'>
+              <div class='image'><img src='".$product['image']."'></div>
               <div class='details'><h5>". $product['name']."</h5>
-              <label>brand: ". $product['brand']."</label>
-              <label>rate: ". $product['rate']."</label><br>
+              <label>brand: ". $product['manufacturer']."</label>
+              <label>shipping: ". $product['shipping']."</label><br>
               <label>price: ". $product['price']."</label></a>
               <input type='button' class='addToCart' value='+ &#128722;'></div></div>";
          }
