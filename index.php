@@ -1,15 +1,6 @@
 <?php 
 session_start();
-if($_GET['ID']){
-  if(strpos($_SESSION['fav'],$_GET['ID']) !== false){
-    $_SESSION['fav'] = str_replace(",".$_GET['ID'],"",$_SESSION['fav']);
-    header("Refresh:0; url=index.php");
-  }
-  else {
-    $_SESSION['fav'] = $_SESSION['fav'].",".$_GET['ID'];
-    header("Refresh:0; url=index.php");
-  }
-}
+
 ?>
 <html>
   <head>
@@ -39,7 +30,7 @@ if($_GET['ID']){
               <input type='submit' form='hiddenform' class='addToCart' value='+ &#128722;'>&emsp;
               <input type='submit' class='fav' value='&#9825;'></div></div>";
         }
-        if($_GET && !($_GET['ID']) && !($_GET['fav'])){
+        if($_GET && !($_GET['fav']) && !($_GET['fav'])){
           foreach($_GET as $key=>$value){
             foreach($products as $p_key => $p_value){
             if(strtolower($_GET[$key]) != strtolower($products[$p_key][$key]))
@@ -47,20 +38,20 @@ if($_GET['ID']){
             }
           }
         }
-        elseif($_GET['fav']){
+        elseif($_GET['fav'] === 'all'){
           foreach($products as $product=>$value){
-            if(strpos($_SESSION['fav'],$products[$product]['id']) === false)
+            if(array_search($products[$product]['id'],$_SESSION['fav']) === false)
               unset($products[$product]);
           }
         }
         else
           $products = array_slice($products,0,15);
+         $fav = $_SESSION['fav'] ?? array();
          foreach($products as $product){
-           if(strpos($_SESSION['fav'],$product['id']) !== false || ($fav_status && $product['id'] == $_GET['ID'])) 
+           $heart = '&#9825;';
+           if(array_search($product['id'],$fav) !== false)
              $heart = '&#10084;';
-           else 
-             $heart = '&#9825;';
-               
+           
            echo "<div class='product' id='_".$product['id']."'><a href='/show.php?".http_build_query($product)."'>
               <div class='image'><img src='".$product['pic']."'></div>
               <div class='details'><h5>". $product['name']."</h5>
@@ -68,7 +59,7 @@ if($_GET['ID']){
               <label>&emsp;<span class='rate'>&#9733;</span> ". $product['rate']."</label><br>
               <label class='price'>". $product['price']." <small>LE</small></label></a><br>
               <input type='submit' form='hiddenform' class='addToCart' value='+ &#128722;'>&emsp;
-              <a href='?ID=".$product['id']."'><input type='submit' class='fav' value='$heart'></a></div></div>";
+              <a href='/_fav.php?fav=".$product['id']."'><input type='submit' class='fav' value='$heart'></a></div></div>";
          }
   echo "<form id='hiddenform'>
         <input type='hidden' val='' name='val'>
