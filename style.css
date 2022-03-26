@@ -17,18 +17,17 @@ article
   max-width: 200px;
   height: max-content;
 }
-.details
+input
 {
-  
-/*   position: absolute;
-  top: 210px; */
+  border-radius: 5px;
+  border: 1px solid #dedede;
 }
 .image
 {
   zoom: 1.5;
   width: 100%;
-  height: 230px;
-  background-color: #f8f8f8;
+  height: 220px;
+  border: 1px solid #d1d1d1;
 }
 h5
 {
@@ -74,5 +73,77 @@ li
 }
 li:hover
 {
-  color: darkred;
+  color: red;
+}
+.rate
+{
+  color: orange;
+}
+form
+{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 5px;
+}
+.labels > label
+{
+  line-height: 2.25;
+}
+.inputs > * , .units > * , .labels > *
+{
+  margin: 7px;
+  padding: 2px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.hide
+{
+  visibility: hidden;
+}
+.preview
+{
+  margin-top: 5px;
+  padding-top: 0;
+  margin-left: 7px;
+}
+.preview > img
+{
+  margin-top: 0;
+  padding-top: 0;
+}
+.fav, .addToCart
+{
+  color: red;
+  font-size: 10pt;
+  font-weight: bolder;
+}
+.addToCart
+{
+  color: green;
+}
+.price
+{
+  color: gray;
+  font-size: 14pt;
+  font-weight: bolder;
+  margin: 5px;
+}
+input[type='submit']:hover
+{
+  cursor:pointer;
+  opacity: 0.8;
+}
+.add-new
+{
+  margin-top: 8.5px;
+  color: green;
+  padding-top: 2px;
+  padding-bottom: 0.5px;
+/*   background-color: green; */
+}
+.title
+{
+  margin-left: 30px;
 }
