@@ -4,7 +4,7 @@ $fav = $_SESSION['fav'] ?? array();
 $id = $_GET['fav'];
 if($id){
     $key = array_search($id,$fav);
-    if($key != false){
+    if($key !== false){
       unset($fav[$key]);
       $_SESSION['fav'] = $fav;
       header("location: /index.php");

@@ -1,6 +1,13 @@
 <?php 
 session_start();
-
+include('data/Products.php');
+// print_r($_SESSION['products']);
+// $products = $_SESSION['product'];
+if($_GET && !($_GET['fav']) && !($_GET['history'])){
+  setcookie('history-3' , $_COOKIE['history-2']);
+  setcookie('history-2' , $_COOKIE['history-1']);
+  setcookie('history-1',"https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+}
 ?>
 <html>
   <head>
@@ -13,24 +20,16 @@ session_start();
       <a href='index.php'><li>&#127968;</li></a>
       <li>&#128722;</li>
        <a href='?fav=all'><li>&#10084;</li></a>
-      <a href='add_product.php'><input type='submit' class='add-new' value='+ Add Product'></a>
+      <a href='?history=all'><li>&#x1F50D;</li></a>
+      <a href='add_product.php'><input type='submit' class='add-new' value='&#10024; New Product'></a>
     </ul></nav>
     <div id='login_board'></div>
     <article>
-    <?php 
-     include('data/Products.php');
-        if($_POST){
-          $products[] = $_POST;
-          echo "<div class='product' id='_".$_POST['id']."'><a href='/show.php?".http_build_query($_POST)."'>
-              <div class='image'><img src='".$_POST['pic']."'></div>
-              <div class='details'><h5>". $_POST['name']."</h5>
-              <label>brand: ". $_POST['brand']."</label>
-              <label>&emsp;<span class='rate'>&#9733;</span> ". $_POST['rate']."</label><br>
-              <label class='price'>". $_POST['price']." <small>LE</small></label></a><br>
-              <input type='submit' form='hiddenform' class='addToCart' value='+ &#128722;'>&emsp;
-              <input type='submit' class='fav' value='&#9825;'></div></div>";
-        }
-        if($_GET && !($_GET['fav']) && !($_GET['fav'])){
+    <?php
+        if($_POST)
+          array_push($products, $_POST);
+          
+        if($_GET && !($_GET['fav']) && !($_GET['history'])){
           foreach($_GET as $key=>$value){
             foreach($products as $p_key => $p_value){
             if(strtolower($_GET[$key]) != strtolower($products[$p_key][$key]))
@@ -39,11 +38,20 @@ session_start();
           }
         }
         elseif($_GET['fav'] === 'all'){
-          foreach($products as $product=>$value){
-            if(array_search($products[$product]['id'],$_SESSION['fav']) === false)
-              unset($products[$product]);
+          foreach($products as $key => $value){
+            if(array_search($products[$key]['id'],$_SESSION['fav'] ?? array()) === false)
+              unset($products[$key]);
           }
         }
+         elseif($_GET['history'] === 'all'){
+           $str = "no history";
+           
+          echo "<ul><a href='".$_COOKIE['history-1']."'><li>1- ".$_COOKIE['history-1']."</li></a>
+                <a href='".$_COOKIE['history-2']."'><li>2- ".$_COOKIE['history-2']."</li></a>
+                <a href='".$_COOKIE['history-3']."'><li>3- ".$_COOKIE['history-3']."</li></a></ul>";
+           return;
+        }
+        
         else
           $products = array_slice($products,0,15);
          $fav = $_SESSION['fav'] ?? array();

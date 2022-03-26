@@ -42,10 +42,14 @@ img
   max-height: 200px;
   
 }
+nav
+{
+  color: gray;
+}
 a
 {
   text-decoration: none;
-  color: balck;
+  color: inherit;
 }
 #login_board
 {
@@ -115,9 +119,12 @@ form
 }
 .fav, .addToCart
 {
-  color: red;
   font-size: 10pt;
   font-weight: bolder;
+}
+.fav
+{
+  color: red;
 }
 .addToCart
 {
@@ -137,11 +144,10 @@ input[type='submit']:hover
 }
 .add-new
 {
-  margin-top: 8.5px;
-  color: green;
-  padding-top: 2px;
-  padding-bottom: 0.5px;
-/*   background-color: green; */
+  margin-top: 6.5px;
+  margin-left: 5px;
+  padding-bottom: 2px;
+  color: gray;
 }
 .title
 {

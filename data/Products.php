@@ -1,4 +1,5 @@
 <?php
+session_start();
 $products = [
 0 =>
 [
@@ -721,3 +722,5 @@ $products = [
   "price"=> "15610"
 ]
 ];
+if(!$_SESSION['products'])
+$_SESSION['products'] = $products;
