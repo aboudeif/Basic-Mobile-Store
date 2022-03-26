@@ -1,11 +1,12 @@
 <?php 
+session_start();
 if($_GET['ID']){
-  if(strpos($_COOKIE['fav'],$_GET['ID']) !== false){
-    setcookie('fav',str_replace(",".$_GET['ID'],"",$_COOKIE['fav']));
+  if(strpos($_SESSION['fav'],$_GET['ID']) !== false){
+    $_SESSION['fav'] = str_replace(",".$_GET['ID'],"",$_SESSION['fav']);
     header("Refresh:0; url=index.php");
   }
   else {
-    setcookie('fav',$_COOKIE['fav'].",".$_GET['ID']);
+    $_SESSION['fav'] = $_SESSION['fav'].",".$_GET['ID'];
     header("Refresh:0; url=index.php");
   }
 }
@@ -48,14 +49,14 @@ if($_GET['ID']){
         }
         elseif($_GET['fav']){
           foreach($products as $product=>$value){
-            if(strpos($_COOKIE['fav'],$products[$product]['id']) === false)
+            if(strpos($_SESSION['fav'],$products[$product]['id']) === false)
               unset($products[$product]);
           }
         }
         else
           $products = array_slice($products,0,15);
          foreach($products as $product){
-           if(strpos($_COOKIE['fav'],$product['id']) !== false || ($fav_status && $product['id'] == $_GET['ID'])) 
+           if(strpos($_SESSION['fav'],$product['id']) !== false || ($fav_status && $product['id'] == $_GET['ID'])) 
              $heart = '&#10084;';
            else 
              $heart = '&#9825;';
