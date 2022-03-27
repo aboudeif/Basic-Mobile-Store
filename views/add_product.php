@@ -1,29 +1,20 @@
 <?php 
 session_start();
-$product = $_SESSION['products'];
-if($_POST) array_push($product,$_POST);
-$_SESSION['products'] = $product;
+$products = $_SESSION['products'];
+if($_POST) array_push($products,$_POST);
+$_SESSION['products'] = $products;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new Product</title>
-    <link rel='stylesheet' href='style.css'>
-</head>
-<body>
+
+    <link rel='stylesheet' href='../styles/style.css'>
+
     <script>function preview(){var src = document.getElementById('pic').value;
         document.getElementById('image').src = src?document.getElementById('pic').value:'/preview.png';}</script>
-      <nav><ul>
-        <a href='index.php'><li>&#10094;</li></a>
-        <li>&#128722;</li>
-      </ul></nav>
+      
+      <?php include('../layout/nav.html'); ?>
      
-      <div class='title'><h2>Add new Product</h2></div>
+      <div class='title-icon'>&#10024;</div><div class='title'><h2>Add new Product</h2></div>
   
-      <form action='.' method='POST' id='form'>
+      <form action='#' method='POST' id='form' class='body'>
       
       <div class='labels'>
       <label for='id'>ID: </label><br>
@@ -44,7 +35,7 @@ $_SESSION['products'] = $product;
       <input type='text' name='model' id='model' placeholder='Product model' required><br>
       <input type='number' name='size' id='size' placeholder='Product screen size' required><br>
       <input type='number' name='capacity' id='capacity' placeholder='Product storage capacity' required><br>
-      <input type='number' name='rate' id='rate' value='0' disabled><br>
+      <input type='number' name='rate' id='rate' value='3' disabled><br>
       <input type='url' name='pic' id='pic' placeholder='Product picture URL' onchange='preview();' required><br>
       <input type='number' name='price' id='price' placeholder='Product price' required><br>
       <input type='submit' name='submit'>
@@ -52,7 +43,7 @@ $_SESSION['products'] = $product;
       </div>
       
       <div class='units'>
-      <input type='text' value='".time()."'disabled><br>
+      <input type='text' value='<?php echo time(); ?>'disabled><br>
       <input type='text' class='hide'><br>
       <input type='text' class='hide'><br>
       <input type='text' class='hide'><br>
@@ -68,5 +59,3 @@ $_SESSION['products'] = $product;
 <!--       <input type='submit' name='preview' value='preview' form='form'> -->
       </div>
       </form>
-</body>
-</html>

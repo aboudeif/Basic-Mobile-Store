@@ -1,6 +1,6 @@
 <?php
 session_start();
-$products = [
+$products_list = [
 0 =>
 [
   "id"=> "B09QSB3LWX",
@@ -723,4 +723,4 @@ $products = [
 ]
 ];
 if(!$_SESSION['products'])
-$_SESSION['products'] = $products;
+$_SESSION['products'] = $products_list;

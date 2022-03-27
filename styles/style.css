@@ -66,6 +66,10 @@ a
 ul
 {
   list-style-type:none;
+}
+nav > ul
+{
+  
   display: flex;
   flex-wrap: wrap;
 }
@@ -74,6 +78,11 @@ li
   cursor: pointer;
   padding: 5px;
   font-size: 14pt;
+}
+.h-element > li
+{
+  cursor: pointer;
+  font-size: 12pt;
 }
 li:hover
 {
@@ -87,8 +96,18 @@ form
 {
   display: flex;
   flex-direction: row;
+}
+form > *
+{
+  margin: 15px;
+}
+.body
+{
   margin: 10px;
-  padding: 5px;
+  padding: 50px;
+  border: 1px solid gray;
+/*   border-radius: 15px; */
+  width: max-content;
 }
 .labels > label
 {
@@ -117,12 +136,12 @@ form
   margin-top: 0;
   padding-top: 0;
 }
-.fav, .addToCart
+.favourite, .addToCart
 {
   font-size: 10pt;
   font-weight: bolder;
 }
-.fav
+.favourite
 {
   color: red;
 }
@@ -149,7 +168,51 @@ input[type='submit']:hover
   padding-bottom: 2px;
   color: gray;
 }
+.title-icon
+{
+  padding: 0;
+/*   display: absolute; */
+  background-color: #f1f1f1;
+  width: 50px;
+  height: 50px;
+  font-size: 28pt;
+  margin-right: 10px;
+  margin-left: 35px;
+  float: left;
+  color: red;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: -3px;
+}
 .title
 {
-  margin-left: 30px;
+  text-align: left;
+  padding: 10px 50px;
+  margin: 5px 30px;
+  color: gold;
+  background-color: #f9f9f9;
+  border: 1px solid #dedede;
+  width: 200px;
+  margin-top: -6px;
+  height: 40px;
 }
+h2
+{
+  margin-top: 6px;
+}
+.history
+{
+  display: block;
+  color: gray;
+}
+a.h-element
+{
+  display: block;
+
+  margin: 15px;
+  padding: 5px 10px;
+  width: max-content;
+  color: gray;
+
+ }
