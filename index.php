@@ -42,6 +42,7 @@ if($_GET){
         }
 
         else
+         echo "<video src='../media/iPhoneXTrailer-Apple.mp4' muted loop onclick='this.play()' title='Click to play'></video>";
          $products = array_slice($products,0,15);
          show($products);
     ?> 

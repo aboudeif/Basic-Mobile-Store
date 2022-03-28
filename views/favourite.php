@@ -18,7 +18,7 @@ elseif(!$_GET){
 # 'Products.php' contains products dataset
 include('../data/Products.php');
 $products = $_SESSION['products'];
-include('../views/get_product.php');
+include('get_product.php');
 echo "<link rel='stylesheet' href='../styles/style.css'>";
 include('../layout/nav.html');
   
@@ -27,7 +27,7 @@ foreach($products as $key => $value){
     unset($products[$key]);
 }
 
-echo "<h2 class='title'>Favourites</h2>";
+echo "<h2 class='title'>Favorite Products</h2>";
 echo "<article>";
 show($products);
 echo "</article>";

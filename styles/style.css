@@ -4,9 +4,11 @@ body
 }
 article
 {
+  width: auto;
+  margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  justify-content: center;
 }
 .product
 {
@@ -37,11 +39,15 @@ h5
   margin-bottom: 3px;
   font-size: 12pt;
 }
-img:not(#logo)
+img:not(#logo,#image)
 {
   margin-top: 10px;
   max-width: 100px;
   max-height: 200px;
+}
+#image
+{
+  border-radius: 5px;
 }
 nav
 {
@@ -114,16 +120,12 @@ form
 }
 form > *
 {
-  margin: 15px;
-}
-
-.grid-item
-{
   margin: 3px;
   padding: 2px;
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .hide
 {
   visibility: hidden;
@@ -131,18 +133,29 @@ form > *
 .preview
 {
   margin-top: 5px;
-
-  margin-left: 27px;
+  margin-left: 20px;
 }
 .preview > img
 {
   margin-top: 0;
   padding-top: 0;
 }
-.favourite, .addToCart
+.favourite
 {
-  font-size: 10pt;
   font-weight: bolder;
+  font-size: 12pt;
+  
+}
+ .addToCart
+{
+  font-size: 12pt;
+  font-family: 'Material Icons';
+  padding: 3px;
+  padding-bottom: 0;
+}
+.addToCart.selected
+{
+  background-color:green;color:white;
 }
 .favourite
 {
@@ -280,4 +293,12 @@ a.h-element
 {
   margin-left: 60px;
   width: max-content;
+}
+video
+{
+  min-height: 460px; 
+  max-height: 160px;
+  width: 100%;
+  margin: 7px;
+  cursor: pointer;
 }
