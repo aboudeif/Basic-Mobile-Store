@@ -28,7 +28,6 @@ if($_GET){
       echo "</div>";
       }
     ?>
-    <div id='login_board'></div>
     <article>
     <?php
         if($_POST)

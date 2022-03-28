@@ -13,6 +13,6 @@ $favourite = $_SESSION['favourite'] ?? array();
     <label>&nbsp;<span class='rate'>".str_repeat("&#9733;",$product['rate']). $product['rate']."</span></label><br>
     <label class='price'>". $product['price']." <small>LE</small></label><br>
     <input type='submit' class='addToCart' value='+ &#128722;'>&emsp;
-    <a href='../views/favourite.php?favourite=".$product['id']."&page=".$_SERVER['PHP_SELF']."?". $_SERVER['QUERY_STRING']."'><input type='submit' class='favourite' value='$heart'></a></div></div>";
+    <a href='../views/favourite.php?favourite=".$product['id']."&page=".$_SERVER['PHP_SELF']."?". $_SERVER['QUERY_STRING']."#_".$product['id']."'><input type='submit' class='favourite' value='$heart'></a></div></div>";
  }
 }

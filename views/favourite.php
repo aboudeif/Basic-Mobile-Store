@@ -15,19 +15,20 @@ header("location: ".$_GET['page']);
 }
 }
 elseif(!$_GET){
+# 'Products.php' contains products dataset
+include('../data/Products.php');
 $products = $_SESSION['products'];
 include('../views/get_product.php');
 echo "<link rel='stylesheet' href='../styles/style.css'>";
 include('../layout/nav.html');
-//  
   
-  foreach($products as $key => $value){
-    if(array_search($products[$key]['id'],$_SESSION['favourite'] ?? array()) === false)
-      unset($products[$key]);
-  }
+foreach($products as $key => $value){
+  if(array_search($products[$key]['id'],$_SESSION['favourite']??array()) === false)
+    unset($products[$key]);
+}
 
-  echo "<h2 class='title'>Favourites</h2>";
-  echo "<article>";
-  show($products);
-  echo "</article>";
+echo "<h2 class='title'>Favourites</h2>";
+echo "<article>";
+show($products);
+echo "</article>";
 }
