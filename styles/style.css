@@ -1,6 +1,6 @@
 body
 {
-  
+  font-family: 'Tajawal', sans-serif;
 }
 article
 {
@@ -16,6 +16,7 @@ article
   min-width: 200px;
   max-width: 200px;
   height: max-content;
+  font-weight: bold;
 }
 input
 {
@@ -79,14 +80,18 @@ li
   padding: 5px;
   font-size: 14pt;
 }
-.h-element > li
+.h-element > button
 {
   cursor: pointer;
   font-size: 12pt;
+  background-color: white;
+  padding: 10px 20px;
+  width: 100%;
 }
 li:hover
 {
   color: red;
+  opacity: 0.8;
 }
 .rate
 {
@@ -100,13 +105,13 @@ form
 form > *
 {
   margin: 15px;
+  font-weight: bold;
 }
 .body
 {
   margin: 10px;
   padding: 50px;
   border: 1px solid gray;
-/*   border-radius: 15px; */
   width: max-content;
 }
 .labels > label
@@ -171,7 +176,6 @@ input[type='submit']:hover
 .title-icon
 {
   padding: 0;
-/*   display: absolute; */
   background-color: #f1f1f1;
   width: 50px;
   height: 50px;
@@ -189,13 +193,56 @@ input[type='submit']:hover
 {
   text-align: left;
   padding: 10px 50px;
-  margin: 5px 30px;
+  margin: 20px 30px;
   color: gold;
   background-color: #f9f9f9;
   border: 1px solid #dedede;
   width: 200px;
   margin-top: -6px;
-  height: 40px;
+  height: 38px;
+}
+.product-title
+{
+  text-align: left;
+  padding: 10px 50px;
+  margin: 20px 30px;
+  color: gold;
+  height: 38px;
+}
+.search-title
+{
+  text-align: left;
+  padding: 10px 20px;
+  margin: 20px 30px;
+  color: gray;
+  height: 38px;
+  font-weight: bolder;
+  font-size: 14pt;
+}
+span.search-title + div
+{
+  margin-left: 70px;
+  font-size: 12pt;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+.key
+{
+  color: white;
+  background-color: gray;
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
+.product-detail
+{
+  color: gray;
+}
+.show-details > ul > li
+{
+  font-weight: bold;
+  cursor: default;
 }
 h2
 {
@@ -209,10 +256,42 @@ h2
 a.h-element
 {
   display: block;
-
-  margin: 15px;
-  padding: 5px 10px;
-  width: max-content;
+  margin: 5px auto;
+  padding: 5px 5px;
+  width: 100%;
   color: gray;
-
+  font-weight: bold;
  }
+
+.h-element > button
+{
+  text-align: left;
+  border: 1px solid #f1f1f1;
+}
+.h-element > button:hover
+{
+  cursor:pointer;
+  opacity: 0.8;
+  background-color: #f1f1f1;
+}
+.required
+{
+  color: red;
+}
+.show-product
+{
+  zoom: 300%;
+}
+.show-product:hover
+{
+  zoom: 500%;
+}
+.show-details
+{
+  margin: auto auto;
+}
+.brand:hover
+{
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
