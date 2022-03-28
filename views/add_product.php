@@ -11,11 +11,10 @@ $_SESSION['products'] = $products;
         document.getElementById('image').src = src?document.getElementById('pic').value:'/preview.png';}</script>
       
       <?php include('../layout/nav.html'); ?>
-     
-      <div class='title-icon'>&#10024;</div><div class='title'><h2>New Product</h2></div>
-  
-      <form action='add_product.php' method='POST' id='form' class='body'>
-      
+
+      <h2 class='title'>New Product</h2>
+      <form action='add_product.php' method='POST' id='form'>
+        
       <div class='labels'>
       <label for='id'>ID: </label><br>
       <label for='name'>name: <b class='required'>*</b></label><br>
@@ -40,8 +39,8 @@ $_SESSION['products'] = $products;
       <input type='number' name='rate' min='0' max='5.0000000000000000' id='rate' value='3' disabled><br>
       <input type='url' name='pic' id='pic' placeholder='Product picture URL' onchange='preview();' required><br>
       <input type='number' name='price' id='price' min='0' placeholder='Product price' required><br>
-      <input type='submit' name='submit'>
-      <input type='reset' name='reset'>
+      <input type='reset' name='reset' value='Clear'>
+      <input type='submit' name='submit' value='Save'>
       </div>
       
       <div class='units'>
@@ -58,6 +57,6 @@ $_SESSION['products'] = $products;
       
       <div class='preview'>
       <input type='text' class='hide'><br>
-      <img id='image' src='/preview.png' class='image' alt='Product image not found'></div>
+      <img id='image' src='/preview.png' class='image' alt='Product image not found'>
       </div>
       </form>

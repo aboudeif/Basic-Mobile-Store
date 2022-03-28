@@ -17,6 +17,7 @@ if($_GET){
     <meta charset="UTF-8">
     <title>PHP End of Module Assignment</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <?php include('layout/nav.html');

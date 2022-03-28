@@ -19,13 +19,14 @@ $products = $_SESSION['products'];
 include('../views/get_product.php');
 echo "<link rel='stylesheet' href='../styles/style.css'>";
 include('../layout/nav.html');
-echo "<div class='title-icon'>&#10084;</div><div class='title'><h2>Favourites</h2></div>";  
+//  
   
   foreach($products as $key => $value){
     if(array_search($products[$key]['id'],$_SESSION['favourite'] ?? array()) === false)
       unset($products[$key]);
   }
-  
+
+  echo "<h2 class='title'>Favourites</h2>";
   echo "<article>";
   show($products);
   echo "</article>";

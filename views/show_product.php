@@ -2,7 +2,7 @@
 <?php include('../layout/nav.html'); ?>
 
 <h2 class='product-title'> <?php echo $_GET['name']; ?></h2>
-<article class='body'>
+<article class='show-body'>
   <div class='show-product'>
     <img src='<?php echo $_GET['pic']; ?>'>
   </div>
