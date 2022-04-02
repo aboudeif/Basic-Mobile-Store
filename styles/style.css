@@ -1,29 +1,30 @@
 body
 {
   font-family: 'Tajawal', sans-serif;
-/*   display: flex;
-  flex-direction: row; */
 }
-/* article
+.body
 {
-} */
-article
+  display: flex;
+  flex-direction: row;
+}
+.content
 {
-  flex: 100%;
+  flex: 100%
+  margin-left: auto;
   width: auto;
-  margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 aside
 {
-  flex: 25%;
+/*   position: absolute; */
   width: auto;
-  margin: 30px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 1000;
+/*   overflow: auto; */
+  margin-right: 50px;
+/*   display: flex;
+  flex-direction: column; */
 }
 .product
 {
@@ -332,4 +333,9 @@ video
   width: 100%;
   margin: 7px;
   cursor: pointer;
+}
+.filter-label
+{
+  font-size: 12pt;
+  font-weight: bold;
 }

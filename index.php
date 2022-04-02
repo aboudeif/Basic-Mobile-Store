@@ -27,9 +27,10 @@ if($_GET){
         echo "<span class='key'>".$key."</span><span class='value'>".$value."</span> ";
       echo "</div>";
       }
-    // include('layout/sidebar.php');
+    echo "<article class='body'>";
+    include('layout/sidebar.php');
         ?>
-    <article>
+    <article class='content'>
     <?php
         if($_POST)
           array_push($products, $_POST);
@@ -41,11 +42,13 @@ if($_GET){
               unset($products[$p_key]);
           }
         }
-
+            // src='../media/iPhoneXTrailer-Apple.mp4'
         else
-         echo "<video src='../media/iPhoneXTrailer-Apple.mp4' muted onclick='this.play()' title='Click to play'></video>";
+         echo "<video  muted onclick='this.play()' title='Click to play'></video>";
          $products = array_slice($products,0,15);
          show($products);
     ?> 
+  </article>
+  </article>
   </body>
 </html>
