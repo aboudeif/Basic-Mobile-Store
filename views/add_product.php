@@ -12,7 +12,7 @@ $_SESSION['products'] = $products;
       
       <?php include('../layout/nav.html'); ?>
 
-      <h2 class='title'>New Product</h2>
+      <h2 class='title'>Add New Product</h2>
       <form action='add_product.php' method='POST' id='form'>
         
       
