@@ -3,10 +3,10 @@ session_start();
 if(isset($_SESSION['products'])){
 $products = $_SESSION['products'];
 echo "<aside>";
-
+   echo "<br><label class='filter-label'>☰ Filters Menu</label>";
   foreach($products['0'] as $key_ => $value_){
-    if($key_ == 'pic' || $key_ == 'name' || $key_ == 'id') continue;
-    echo "<br><br><label class='filter-label'>$key_</label><br>";
+    if($key_ == 'pic' || $key_ == 'name' || $key_ == 'id' || $key_ == 'rate' || $key_ == 'price') continue;
+    echo "<br><br><label class='filter-label'>".ucwords($key_).": </label><br>";
   foreach($products as $product){
     $recent[$key_][] = null;
   foreach($product as $key => $value){
@@ -18,8 +18,6 @@ echo "<aside>";
      foreach($query_statments as $statement){
        $query_key = rtrim(str_split($statement,strpos($statement,"=")+1)[0],"=");
        $query_val = ltrim($statement,$query_key."=");
-       // echo $query_val."<br>";
-       // echo $statement;
        if( $query_key === $key){
           $old_query = str_replace($query_val, $value, $old_query);
           $flag =1;

@@ -21,6 +21,8 @@ if($_GET){
   </head>
   <body>
     <?php include('layout/nav.html');
+     if(!$_GET)
+     echo "<video src='../media/iPhoneXTrailer-Apple.mp4' muted onclick='this.play()' title='Click to play'></video>";
       if($_GET){
       echo "<span class='search-title'> Search for:</span><div>";
       foreach($_GET as $key => $value)
@@ -42,9 +44,8 @@ if($_GET){
               unset($products[$p_key]);
           }
         }
-            // src='../media/iPhoneXTrailer-Apple.mp4'
         else
-         echo "<video  muted onclick='this.play()' title='Click to play'></video>";
+        
          $products = array_slice($products,0,15);
          show($products);
     ?> 

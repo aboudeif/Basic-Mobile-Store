@@ -9,22 +9,26 @@ body
 }
 .content
 {
-  flex: 100%
-  margin-left: auto;
+  flex: 1fr;
+  margin-left: 10px;
   width: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-content: flex-start;
 }
 aside
 {
-/*   position: absolute; */
-  width: auto;
-  height: 1000;
-/*   overflow: auto; */
-  margin-right: 50px;
-/*   display: flex;
-  flex-direction: column; */
+  min-width: 150px;
+  margin-top: 5px;
+  border: 1px solid #dedede;
+  padding: 10px 40px 5px 5px;
+  
+}
+
+aside > a 
+{
+  min-width: 200px;
+  text-wrap: nowrap;
 }
 .product
 {
@@ -338,4 +342,5 @@ video
 {
   font-size: 12pt;
   font-weight: bold;
+  margin-left: 10px;
 }
