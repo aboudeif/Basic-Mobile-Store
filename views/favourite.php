@@ -28,7 +28,7 @@ foreach($products as $key => $value){
 }
 
 echo "<h2 class='title'>Favorite Products</h2>";
-echo "<article>";
+echo "<article class='body'>";
 show($products);
 echo "</article>";
 }

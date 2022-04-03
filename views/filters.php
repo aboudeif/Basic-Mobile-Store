@@ -11,6 +11,7 @@ echo "<aside>";
     $recent[$key_][] = null;
   foreach($product as $key => $value){
     $check = ($_GET[$key] == $value) ? "check_box":"check_box_outline_blank";
+    $style = ($_GET[$key] == $value) ? "color: royalblue;":"";
    if($key === $key_ && array_search($value,$recent[$key]) === false){
      $old_query = $_SERVER['QUERY_STRING'] ?? "";
      $query_statments = explode("&",$_SERVER['QUERY_STRING']);
@@ -27,7 +28,7 @@ echo "<aside>";
      if(!$flag)
          $old_query .= $_SERVER['QUERY_STRING'] ? "&".$key."=".$value : $key."=".$value ;
       
-  echo "<br><a href='". $_SERVER['PHP_SELF']."?".$old_query."'><label class='material-icons-outlined'>$check</label> $value</a>";
+  echo "<br><a href='". $_SERVER['PHP_SELF']."?".$old_query."' style='$style'><label class='material-icons-outlined' style='$style'>$check</label> $value</a>";
     $recent[$key_][] = $value;
    }
   }
