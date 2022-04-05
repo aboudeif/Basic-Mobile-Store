@@ -7,18 +7,23 @@ include('views/get_product.php');
 # products data stored in session as extra layer allowing user add to them
 $products = $_SESSION['products'];
 if($_GET){
+
   setcookie('search-link-3' , $_COOKIE['search-link-2']);
   setcookie('search-link-2' , $_COOKIE['search-link-1']);
   setcookie('search-link-1',"https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
- $search = "<span class='search-title'> Search for:</span><div>";
+  $search = "<div style='margin-top: 5px;'>";
+  
  foreach($_GET as $key => $value)
-   $search .= "<span class='key'>".$key."</span><span class='value'>".$value."</span>";
-    $search .= "</div>";
+  
+  $search .= "<span class='key'>".$key."</span><span class='value'>".$value."</span>";
+  $search .= "</div>";
+  
   setcookie('search-3' , $_COOKIE['search-2']);
   setcookie('search-2' , $_COOKIE['search-1']);
-  setcookie('search-1',$search);
+  setcookie('search-1',"<span class='material-icons-outlined'>schedule</span><small  style='position: absolute; translate:transform(-20%,0);'>".date(' D, d-M-y [ H:i:s A ]',$_SERVER['REQUEST_TIME'])." UTC </small>".$search);
   
 }
+
 ?>
 <html>
   <head>
@@ -32,12 +37,8 @@ if($_GET){
      if(!$_GET)
      echo "<video src='../media/iPhoneXTrailer-Apple.mp4' muted onclick='this.play()' title='Click to play'></video>";
       if($_GET){
-      // echo "<span class='search-title'> Search for:</span><div>";
-      echo $search;
-        // echo "<span class='key'>".$key."</span><span class='value'>".$value."</span> ";
-      // echo "</div>";
+      echo "<span class='search-title'> Search for:</span>".$search;
         
-  
       }
     echo "<article class='body'>";
     include('views/filters.php');

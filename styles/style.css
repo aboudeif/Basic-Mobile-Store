@@ -344,3 +344,23 @@ video
   font-weight: bold;
   margin-left: 10px;
 }
+.notification
+{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,0);
+  opacity: 0;
+  background-color: white;
+  color: darkgreen;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #dedede;
+  padding: 5px 5px;
+  font-size: 16pt;
+  font-weight: bold;
+}
+@keyframes done{
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
